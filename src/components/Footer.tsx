@@ -33,13 +33,16 @@ export default function Footer() {
         <iframe
           title="facebook-page"
           src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDaodien.BiendaomuaThanhHai&tabs=timeline&width=340&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=2806931702934807"
-          width="340"
-          height="150"
-          style={{ border: 'none', overflow: 'hidden' }}
+          style={{
+            border: 'none',
+            overflow: 'hidden',
+            width: '100%',
+            height: '150px',
+          }}
           allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
         />
-        <div className="w-full h-full pl-12">
+        <div className="w-full h-full">
           <h3 className="text-xl flex items-center uppercase text-designColor tracking-wider">
             <span className="mr-2 ">
               <PiAddressBookLight />

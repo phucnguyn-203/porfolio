@@ -20,8 +20,8 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full h-20 sticky top-0 z-50 bg-[#ffff] pr-6 flex justify-between items-center">
-      <div className="pl-8 w-32">
+    <header className="w-full h-20 sticky top-0 z-50 bg-[#ffff] px-6 flex justify-between items-center">
+      <div className="w-32">
         <Link href="/">
           <Image priority src={logo} alt="Logo" width={96} height={96} />
         </Link>

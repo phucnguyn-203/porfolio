@@ -13,7 +13,7 @@ import skill4 from '../../assets/images/skill-4.png';
 
 export default function FieldSection() {
   return (
-    <section id="linh-vuc" className="w-full py-20  ">
+    <section id="linh-vuc" className="w-full py-20 px-5 lg:px-0">
       <Title title="Lĩnh Vực" des="Chuyên môn" />
       <hr className="border-[#222222] border-solid border-t-2 w-full" />
       <div className="grid grid-cols-1 pt-10 md:grid-cols-2 xl:grid-cols-2 gap-6 xl:gap-20">

@@ -5,7 +5,7 @@ import img from '../../assets/images/contact.jpg';
 
 export default function ContactSection() {
   return (
-    <section id="lien-he" className="w-full py-20">
+    <section id="lien-he" className="w-full py-20 px-5 lg:px-0">
       <Title title="Liên Hệ" des="Chuyên môn" />
       <hr className="border-[#222222] border-solid border-t-2 w-full" />
       <div className="w-full pt-20">
