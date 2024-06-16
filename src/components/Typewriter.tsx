@@ -14,18 +14,19 @@ const Typewriter = ({ texts, speed }: TypewriterProps) => {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (currentIndex < texts[currentTextIndex].length) {
-        setDisplayText(
-          (prevText) => prevText + texts[currentTextIndex][currentIndex],
-        );
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      } else {
-        setCurrentIndex(0);
-        if (currentTextIndex === texts.length - 1) setCurrentTextIndex(0);
-        else setCurrentTextIndex((prevIndex) => prevIndex + 1);
+      if (texts)
+        if (currentIndex < texts[currentTextIndex].length) {
+          setDisplayText(
+            (prevText) => prevText + texts[currentTextIndex][currentIndex],
+          );
+          setCurrentIndex((prevIndex) => prevIndex + 1);
+        } else {
+          setCurrentIndex(0);
+          if (currentTextIndex === texts.length - 1) setCurrentTextIndex(0);
+          else setCurrentTextIndex((prevIndex) => prevIndex + 1);
 
-        setDisplayText('');
-      }
+          setDisplayText('');
+        }
     }, speed);
 
     return () => clearInterval(interval);
