@@ -57,6 +57,13 @@ const artPerformance = {
       description: 'The date of the art performance',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'file',
+      type: 'file',
+      title: 'File',
+      description: 'Upload a file for the art performance',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {

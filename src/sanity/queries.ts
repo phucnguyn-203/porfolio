@@ -194,12 +194,7 @@ const getArtPerformance = async () => {
           url
         }
       },
-      file{
-      asset->{
-      url
-      }
-      },
-      fileName,
+      "fileUrl": file.asset->url,
       type,
       _createdAt
     }
