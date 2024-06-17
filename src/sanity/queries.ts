@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity';
 import client from './sanity.client';
 
+// Fetch profile information
 const getProfile = async () => {
   return client.fetch(groq`
     *[_type == "profile"]{
@@ -22,8 +23,7 @@ const getProfile = async () => {
   `);
 };
 
-export { getProfile };
-
+// Fetch latest news
 const getLatestNews = async () => {
   return client.fetch(
     groq`
@@ -43,8 +43,7 @@ const getLatestNews = async () => {
   );
 };
 
-export { getLatestNews };
-
+// Fetch news by slug
 const getNewsBySlug = async (slug: string) => {
   return client.fetch(
     groq`
@@ -64,8 +63,7 @@ const getNewsBySlug = async (slug: string) => {
   );
 };
 
-export { getNewsBySlug };
-
+// Fetch all news
 const getNews = async () => {
   return client.fetch(
     groq`
@@ -85,8 +83,7 @@ const getNews = async () => {
   );
 };
 
-export { getNews };
-
+// Fetch three latest news
 const getThreeLatestNews = async () => {
   return client.fetch(
     groq`
@@ -106,4 +103,110 @@ const getThreeLatestNews = async () => {
   );
 };
 
-export { getThreeLatestNews };
+// Fetch three latest art performances
+const getThreeLatestArtPerformance = async () => {
+  return client.fetch(
+    groq`
+    *[_type == "artPerformance"]|order(_createdAt desc){
+      title,
+      slug,
+      description,
+      thumbnail{
+        asset->{
+          url
+        }
+      },
+      file{
+        name,
+        url
+      },
+      type,
+      _createdAt
+    }[0...3]
+  `,
+  );
+};
+
+// Fetch latest art performance
+const getLateArtPerformance = async () => {
+  return client.fetch(
+    groq`
+    *[_type == "artPerformance"]|order(_createdAt desc){
+      title,
+      slug,
+      description,
+      thumbnail{
+        asset->{
+          url
+        }
+      },
+      file{
+        name,
+        url
+      },
+      type,
+      _createdAt
+    }[0]
+  `,
+  );
+};
+
+// Fetch art performance by slug
+const getArtPerformanceBySlug = async (slug: string) => {
+  return client.fetch(
+    groq`
+    *[_type == "artPerformance" && slug.current == $slug]{
+      title,
+      description,
+      thumbnail{
+        asset->{
+          url
+        }
+      },
+      file{
+       asset->{
+       url}
+      },
+      type,
+      _createdAt
+    }[0]
+  `,
+    { slug },
+  );
+};
+
+// Fetch all art performances
+const getArtPerformance = async () => {
+  return client.fetch(
+    groq`
+    *[_type == "artPerformance"]|order(_createdAt desc){
+      title,
+      slug,
+      description,
+      thumbnail{
+        asset->{
+          url
+        }
+      },
+      file{
+        name,
+        url
+      },
+      type,
+      _createdAt
+    }
+  `,
+  );
+};
+
+export {
+  getProfile,
+  getLatestNews,
+  getNewsBySlug,
+  getNews,
+  getThreeLatestNews,
+  getThreeLatestArtPerformance,
+  getLateArtPerformance,
+  getArtPerformanceBySlug,
+  getArtPerformance,
+};

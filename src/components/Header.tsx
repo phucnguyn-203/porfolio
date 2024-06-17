@@ -37,6 +37,9 @@ export default function Header() {
           <Link href="#tin-tuc">Tin Tức</Link>
         </li>
         <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
+          <Link href="#chuong-trinh-nghe-thuat">Chương Trình Nghệ Thuật</Link>
+        </li>
+        <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
           <Link href="#lien-he">Liên Hệ</Link>
         </li>
       </ul>
