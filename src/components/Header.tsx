@@ -74,6 +74,11 @@ export default function Header() {
                   Lĩnh Vực
                 </Link>
               </li>
+              <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
+                <Link href="#chuong-trinh-nghe-thuat">
+                  Chương Trình Nghệ Thuật
+                </Link>
+              </li>
               <li className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300">
                 <Link href="#tin-tuc" onClick={handleCloseMenu}>
                   Tin Tức

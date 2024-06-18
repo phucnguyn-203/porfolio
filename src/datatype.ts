@@ -30,6 +30,8 @@ export interface News {
 }
 
 export interface ArtPerfomance {
+  fileName: string;
+  file: any;
   title: string;
   description: string;
   thumbnail: {
@@ -41,10 +43,8 @@ export interface ArtPerfomance {
     current: string;
   };
   _createdAt: string;
-  file?: {
-    asset: {
-      name: string;
-      url: string;
-    };
+
+  fileUrl?: {
+    url: string;
   };
 }

@@ -1,14 +1,5 @@
 import { defineField } from 'sanity';
 
-const fileField = defineField({
-  name: 'file',
-  type: 'file',
-  title: 'File',
-  description: 'Upload a file for the art performance',
-  validation: (Rule) => Rule.required(),
-});
-console.log('File field definition:', fileField);
-
 const artPerformance = {
   title: 'Art Performance',
   name: 'artPerformance',
@@ -33,6 +24,13 @@ const artPerformance = {
       },
     }),
     defineField({
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'image',
+      description: 'The thumbnail of the art performance',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
@@ -40,14 +38,17 @@ const artPerformance = {
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'thumbnail',
-      title: 'Thumbnail',
-      type: 'image',
-      description: 'The thumbnail of the art performance',
+      name: 'file',
+      title: 'File',
+      type: 'file',
+      description: 'The file of the art performance',
       validation: (Rule) => Rule.required(),
-      options: {
-        hotspot: true,
-      },
+    }),
+    defineField({
+      name: 'fileName',
+      title: 'File Name',
+      type: 'string',
+      description: 'The name of the uploaded file',
     }),
     defineField({
       name: 'date',
@@ -56,16 +57,22 @@ const artPerformance = {
       description: 'The date of the art performance',
       validation: (Rule) => Rule.required(),
     }),
-    fileField,
   ],
   preview: {
     select: {
       title: 'title',
       media: 'thumbnail',
-      fileField: 'file',
+      fileName: 'fileName',
+    },
+    prepare(selection: { title: any; media: any; fileName: any }) {
+      const { title, media, fileName } = selection;
+      return {
+        title: title,
+        media: media,
+        subtitle: fileName ? `File Name: ${fileName}` : 'No file uploaded',
+      };
     },
   },
 };
-console.log('Art performance schema:', artPerformance);
 
 export default artPerformance;

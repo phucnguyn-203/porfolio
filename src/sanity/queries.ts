@@ -117,9 +117,11 @@ const getThreeLatestArtPerformance = async () => {
         }
       },
       file{
-        name,
-        url
+      asset->{
+      url
+      }
       },
+      fileName,
       type,
       _createdAt
     }[0...3]
@@ -141,9 +143,11 @@ const getLateArtPerformance = async () => {
         }
       },
       file{
-        name,
-        url
+      asset->{
+      url
+      }
       },
+      fileName,
       type,
       _createdAt
     }[0]
@@ -164,9 +168,11 @@ const getArtPerformanceBySlug = async (slug: string) => {
         }
       },
       file{
-       asset->{
-       url}
+      asset->{
+      url
+      }
       },
+      fileName,
       type,
       _createdAt
     }[0]
@@ -189,9 +195,11 @@ const getArtPerformance = async () => {
         }
       },
       file{
-        name,
-        url
+      asset->{
+      url
+      }
       },
+      fileName,
       type,
       _createdAt
     }

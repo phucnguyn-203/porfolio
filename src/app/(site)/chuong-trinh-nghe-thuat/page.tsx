@@ -28,7 +28,7 @@ export default function Page() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="pb-20">
           <div className="flex justify-between">
-            <div className="py-2 px-6 bg-gradient-to-br from-yellow-200 via-pink-200 to-blue-400 h-[44px] w-[300px] block border-box rounded-lg relative">
+            <div className="py-2 px-6 bg-gradient-to-br from-yellow-200 via-pink-200 to-blue-400 h-[44px] w-[400px] block border-box rounded-lg relative">
               <h2 className="text-xl font-normal uppercase text-[#444444] tracking-wide text-center">
                 Chương Trình Nghệ Thuật
               </h2>
@@ -48,6 +48,8 @@ export default function Page() {
                 title={item.title}
                 description={item.description}
                 thumbnail={item.thumbnail.asset.url}
+                fileUrl={item.file.asset.url}
+                fileName={item.fileName}
               />
             ))}
         </div>

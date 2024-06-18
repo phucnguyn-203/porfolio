@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { ArtPerfomance } from '@/datatype';
 import { getThreeLatestArtPerformance } from '../../sanity/queries';
 import ArtPerformanceCard from './ArtPerfomanceCard';
+import Link from 'next/link';
+import Title from '../Title';
 
 const ArtsPerformance: React.FC = () => {
   const [artsPerformance, setArtsPerformance] = useState<ArtPerfomance[]>([]);
@@ -49,9 +51,14 @@ const ArtsPerformance: React.FC = () => {
             title={item.title}
             description={item.description}
             thumbnail={item.thumbnail.asset.url}
+            fileUrl={item.file?.asset.url}
+            fileName={item.fileName}
           />
         ))}
       </div>
+      <Link href="/chuong-trinh-nghe-thuat" className="mt-5 block">
+        <Title title="Xem Thêm" des="tin tức" />
+      </Link>
     </section>
   );
 };
