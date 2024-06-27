@@ -32,9 +32,7 @@ export default function ArtPerformanceCard({
   };
 
   const getFileIcon = (fileUrl: string | undefined) => {
-    if (!fileUrl) {
-      return { icon: faFileAlt, color: 'text-gray-400' };
-    }
+    if (!fileUrl) return { icon: faFileAlt, color: 'text-gray-400' };
 
     const extension = getFileExtension(fileUrl);
     switch (extension) {

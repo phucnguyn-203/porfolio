@@ -48,7 +48,7 @@ export default function Page() {
                 title={item.title}
                 description={item.description}
                 thumbnail={item.thumbnail.asset.url}
-                fileUrl={item.file.asset.url}
+                fileUrl={item.fileUrl!}
                 fileName={item.fileName}
               />
             ))}

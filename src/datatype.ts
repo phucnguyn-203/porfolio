@@ -44,7 +44,5 @@ export interface ArtPerfomance {
   };
   _createdAt: string;
 
-  fileUrl?: {
-    url: string;
-  };
+  fileUrl?: string;
 }
