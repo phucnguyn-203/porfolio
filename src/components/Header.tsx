@@ -1,6 +1,5 @@
 'use client';
-
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiMenu } from 'react-icons/fi';
@@ -9,7 +8,11 @@ import { FaFacebookF, FaYoutube, FaInstagram } from 'react-icons/fa';
 import logo from '../assets/images/logo.png';
 
 export default function Header() {
-  const [isShowMenu, setIsShowMenu] = React.useState<boolean>(false);
+  const [isShowMenu, setIsShowMenu] = useState(false);
+  const pathname =
+    typeof window !== 'undefined' ? window.location.pathname : '/';
+
+  const homeLink = pathname === '/' ? '#' : '/';
 
   const handleMenuClick = () => {
     setIsShowMenu(!isShowMenu);
@@ -18,11 +21,23 @@ export default function Header() {
   const handleCloseMenu = () => {
     setIsShowMenu(false);
   };
+  const handleHeaderNews = () => {
+    window.location.href = '/#tin-tuc';
+  };
+  const handleHeaderContact = () => {
+    window.location.href = '/#lien-he';
+  };
+  const handleHeaderLinhVuc = () => {
+    window.location.href = '/#linh-vuc';
+  };
+  const handleHeaderArtPerfomance = () => {
+    window.location.href = '/#chuong-trinh-nghe-thuat';
+  };
 
   return (
     <header className="w-full h-20 sticky top-0 z-50 bg-[#ffff] px-6 flex justify-between items-center">
       <div className="w-32">
-        <Link href="/">
+        <Link href={homeLink}>
           <Image priority src={logo} alt="Logo" width={96} height={96} />
         </Link>
       </div>
@@ -31,16 +46,27 @@ export default function Header() {
           <Link href="/">Trang Chủ</Link>
         </li>
         <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
-          <Link href="#linh-vuc">Lĩnh Vực</Link>
+          <Link href="#linh-vuc" onClick={handleHeaderLinhVuc}>
+            Lĩnh Vực
+          </Link>
         </li>
         <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
-          <Link href="#tin-tuc">Tin Tức</Link>
+          <Link href="#tin-tuc" onClick={handleHeaderNews}>
+            Tin Tức
+          </Link>
         </li>
         <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
-          <Link href="#chuong-trinh-nghe-thuat">Chương Trình Nghệ Thuật</Link>
+          <Link
+            href="#chuong-trinh-nghe-thuat"
+            onClick={handleHeaderArtPerfomance}
+          >
+            Chương Trình Nghệ Thuật
+          </Link>
         </li>
         <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
-          <Link href="#lien-he">Liên Hệ</Link>
+          <Link href="#lien-he" onClick={handleHeaderContact}>
+            Liên Hệ
+          </Link>
         </li>
       </ul>
 
@@ -55,7 +81,7 @@ export default function Header() {
         <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
           <div className="flex flex-col gap-8 py-2 relative">
             <div>
-              <Link href="/">
+              <Link href={homeLink}>
                 <Image priority src={logo} alt="Logo" width={96} height={96} />
               </Link>
               <p className="text-white">Nguyễn Lê Thanh Hải</p>
@@ -74,14 +100,14 @@ export default function Header() {
                   Lĩnh Vực
                 </Link>
               </li>
-              <li className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300">
-                <Link href="#chuong-trinh-nghe-thuat">
-                  Chương Trình Nghệ Thuật
-                </Link>
-              </li>
               <li className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300">
                 <Link href="#tin-tuc" onClick={handleCloseMenu}>
                   Tin Tức
+                </Link>
+              </li>
+              <li className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300">
+                <Link href="#chuong-trinh-nghe-thuat" onClick={handleCloseMenu}>
+                  Chương Trình Nghệ Thuật
                 </Link>
               </li>
               <li className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300">
