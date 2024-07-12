@@ -31,7 +31,11 @@ export interface News {
 
 export interface ArtPerfomance {
   fileName: string;
-  file: any;
+  file: {
+    asset: {
+      url: string
+    }
+  };
   title: string;
   description: string;
   thumbnail: {

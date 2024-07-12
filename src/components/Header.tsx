@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -37,7 +38,7 @@ export default function Header() {
   return (
     <header className="w-full h-20 sticky top-0 z-50 bg-[#ffff] px-6 flex justify-between items-center">
       <div className="w-32">
-        <Link href={homeLink}>
+        <Link href='/'>
           <Image priority src={logo} alt="Logo" width={96} height={96} />
         </Link>
       </div>

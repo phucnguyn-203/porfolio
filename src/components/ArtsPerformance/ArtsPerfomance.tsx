@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArtPerfomance } from '@/datatype';
+import Link from 'next/link';
 import { getThreeLatestArtPerformance } from '../../sanity/queries';
 import ArtPerformanceCard from './ArtPerfomanceCard';
-import Link from 'next/link';
 import Title from '../Title';
 
 const ArtsPerformance: React.FC = () => {
@@ -17,7 +17,6 @@ const ArtsPerformance: React.FC = () => {
       try {
         const data = await getThreeLatestArtPerformance();
         setArtsPerformance(data);
-        console.log(data);
       } catch (error) {
         setError('Failed to fetch art performances');
       } finally {

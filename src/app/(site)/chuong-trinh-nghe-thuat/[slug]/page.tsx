@@ -1,6 +1,5 @@
 import { getArtPerformanceBySlug } from '@/sanity/queries';
 import React from 'react';
-import Image from 'next/image';
 import formatDate from '@/utils/formatDate';
 import Link from 'next/link';
 import FileIframe from '@/components/FileIframe';

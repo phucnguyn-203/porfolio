@@ -53,7 +53,7 @@ export default function ArtPerformanceCard({
   const { icon, color } = getFileIcon(fileUrl);
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-lg max-w-md mx-auto">
+    <div className="border rounded-lg overflow-hidden shadow-lg max-w-md mx-auto w-full">
       <div className="h-[300px]">
         <Image
           priority

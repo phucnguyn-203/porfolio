@@ -19,9 +19,7 @@ const getFileExtension = (filename: string) => {
 };
 
 const getFileIcon = (fileUrl: string | undefined) => {
-  if (!fileUrl) {
-    return { icon: faFileAlt, color: 'text-gray-400' };
-  }
+  if (!fileUrl) return { icon: faFileAlt, color: 'text-gray-400' };
 
   const extension = getFileExtension(fileUrl);
   switch (extension) {
@@ -49,7 +47,7 @@ const LatestArtPerformance: React.FC = () => {
         const artPerformance = await getLateArtPerformance();
         setLatestArtPerformance(artPerformance);
       } catch (error) {
-        console.error('Failed to fetch latest art performance', error);
+        throw new Error('Failed to fetch latest art performance');
       }
     };
     fetchLatestArtPerformance();
@@ -57,8 +55,8 @@ const LatestArtPerformance: React.FC = () => {
 
   if (!latestArtPerformance) return null;
 
-  const { icon, color } = latestArtPerformance.fileUrl?.url
-    ? getFileIcon(latestArtPerformance.fileUrl.url)
+  const { icon, color } = latestArtPerformance.file.asset.url
+    ? getFileIcon(latestArtPerformance.file.asset.url)
     : { icon: faFileAlt, color: 'text-gray-500' };
 
   return (
@@ -86,9 +84,9 @@ const LatestArtPerformance: React.FC = () => {
           <p className="text-sm text-[#444444] tracking-wide my-3 duration-300 overflow-ellipsis overflow-hidden line-clamp-5">
             {latestArtPerformance?.description}
           </p>
-          {latestArtPerformance.fileUrl?.url && (
+          {latestArtPerformance.file.asset.url && (
             <Link
-              href={latestArtPerformance.fileUrl.url}
+              href={latestArtPerformance.file.asset.url}
               className={`${color} underline flex items-center mt-2 pb-2`}
               target="_blank"
               rel="noopener noreferrer"
