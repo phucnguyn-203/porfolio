@@ -37,13 +37,6 @@ const artPerformance = {
       description: 'The description of the art performance',
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: 'file',
-    //   title: 'File',
-    //   type: 'file',
-    //   description: 'The file of the art performance',
-    //   validation: (Rule) => Rule.required(),
-    // }),
     defineField({
       name: 'fileName',
       title: 'File Name',
