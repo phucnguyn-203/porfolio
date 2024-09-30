@@ -44,6 +44,7 @@ export default function Page() {
               slug={item.slug.current}
               title={item.title}
               description={item.description}
+              content={item.content}
               thumbnail={item.thumbnail.asset.url}
             />
           ))}

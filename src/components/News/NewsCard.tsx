@@ -5,6 +5,7 @@ type NewsCardProps = {
   slug: string;
   title: string;
   description: string;
+  content: any;
   thumbnail: string;
 };
 
@@ -12,6 +13,7 @@ export default function NewsCard({
   slug,
   title,
   description,
+  content,
   thumbnail,
 }: NewsCardProps) {
   return (

@@ -1,3 +1,5 @@
+import { TypedObject } from 'sanity';
+
 export interface Profile {
   fullName: string;
   headline: string;
@@ -16,8 +18,10 @@ export interface Profile {
 }
 
 export interface News {
+  [x: string]: any;
   title: string;
   description: string;
+  content: Array<TypedObject>;
   thumbnail: {
     asset: {
       url: string;
@@ -33,8 +37,8 @@ export interface ArtPerfomance {
   fileName: string;
   file: {
     asset: {
-      url: string
-    }
+      url: string;
+    };
   };
   title: string;
   description: string;

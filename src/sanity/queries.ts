@@ -71,6 +71,7 @@ const getNews = async () => {
       title,
       slug,
       description,
+      content,
       thumbnail{
         asset->{
           url

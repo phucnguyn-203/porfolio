@@ -33,7 +33,7 @@ export default function Banner() {
               Công việc:{' '}
               <Typewriter texts={profile?.jobs as string[]} speed={200} />
             </h2>
-            <p className="text-base font-bodyFont text-[#272930] leading-6 tracking-wide">
+            <p className="text-base font-bodyFont text-[#272930] leading-6 tracking-wide text-justify">
               {profile?.bio}
             </p>
           </div>
@@ -63,8 +63,7 @@ export default function Banner() {
             </div>
           </div>
         </div>
-
-        <div className="w-full lgl:w-1/2 flex justify-center items-center relative">
+        <div className="w-full lg:w-1/2 flex justify-center items-center relative">
           {profile?.profileImage.asset?.url ? (
             <Image
               priority
@@ -72,13 +71,14 @@ export default function Banner() {
               width={1577}
               height={1717}
               alt="profile"
-              className="w-[400px] h-[400px] lgl:w-[600px] lgl:h-[600px] z-10"
+              className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[650px] lg:h-[650px] object-cover z-10 transition-transform duration-300 hover:scale-105 rounded-lg "
             />
           ) : (
-            // Render a placeholder image or some other component when the URL is not available
-            <div>Image not available</div>
+            <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[650px] lg:h-[650px] flex justify-center items-center bg-gray-200 text-gray-500 text-xl font-semibold rounded-lg shadow-lg">
+              Image not available
+            </div>
           )}
-          <div className="absolute bottom-0 w-[350px] h-[350px] lgl:w-[500px] lgl:h-[500px] bg-[#f3f1d5] shadow-lg shadow-yellow-900/50 flex justify-center items-center" />
+          <div className="absolute bottom-0 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-[#f3f1d5] shadow-lg shadow-yellow-900/50 flex justify-center items-center transition-transform duration-300 hover:scale-105 rounded-lg" />
         </div>
       </div>
     </section>

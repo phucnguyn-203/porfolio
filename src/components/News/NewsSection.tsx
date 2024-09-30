@@ -7,6 +7,7 @@ import { News } from '@/datatype';
 import { getThreeLatestNews } from '../../sanity/queries';
 import Title from '../Title';
 import NewsCard from './NewsCard';
+import { PortableText } from '@portabletext/react';
 
 export default function NewsSection() {
   const [news, setNews] = React.useState<News[]>([]);
@@ -35,8 +36,10 @@ export default function NewsSection() {
             key={item.slug.current}
             slug={item.slug.current}
             title={item.title}
-            description={item.description}
+            // description={item.description}
+            content={<PortableText value={item.content} />}
             thumbnail={item.thumbnail.asset.url}
+            description={''}
           />
         ))}
       </div>

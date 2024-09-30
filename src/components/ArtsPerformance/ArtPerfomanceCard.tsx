@@ -53,7 +53,7 @@ export default function ArtPerformanceCard({
   const { icon, color } = getFileIcon(fileUrl);
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-lg max-w-md mx-auto w-full">
+    <div className="border rounded-lg overflow-hidden shadow-lg max-w-md mx-auto w-full flex flex-col">
       <div className="h-[300px]">
         <Image
           priority
@@ -65,28 +65,30 @@ export default function ArtPerformanceCard({
           className="w-full h-full object-cover transition-all ease-linear duration-300 overflow-hidden"
         />
       </div>
-      <div className="p-6">
-        <h1 className="font-semibold text-xl mb-2 text-ellipsis overflow-hidden line-clamp-2">
+      <div className="p-6 flex flex-col flex-grow">
+        <h1 className="font-semibold text-xl mb-2 text-ellipsis overflow-clip line-clamp-2">
           {title}
         </h1>
-        <p className="text-gray-700 text-base text-ellipsis overflow-hidden line-clamp-3">
+        <p className="text-gray-700 text-base text-ellipsis overflow-clip line-clamp-3 flex-grow">
           {description}
         </p>
-        {fileUrl && fileName && (
-          <Link
-            href={fileUrl}
-            className={`${color} font-medium underline flex items-center mt-2 pb-2`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={icon} className="mr-2 size-6" />
-            {fileName}
-          </Link>
-        )}
+        <div className="mt-2">
+          {fileUrl && fileName && (
+            <Link
+              href={fileUrl}
+              className={`${color} font-medium underline flex items-center pb-2`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={icon} className="mr-2 size-6" />
+              {fileName}
+            </Link>
+          )}
+        </div>
         {slug && (
           <Link
             href={`chuong-trinh-nghe-thuat/${slug}`}
-            className="font-medium mt-4 "
+            className="font-medium mt-4"
           >
             Xem thêm
           </Link>

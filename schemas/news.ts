@@ -29,6 +29,13 @@ const news = {
       description: 'The description of the news',
     }),
     defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'block' }, { type: 'image' }],
+      description: 'The content of the news',
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
